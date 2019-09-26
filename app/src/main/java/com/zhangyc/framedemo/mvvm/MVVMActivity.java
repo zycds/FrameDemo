@@ -26,6 +26,8 @@ public class MVVMActivity extends AppCompatActivity {
         student.setStudentName("YD");
         activityMvvmBinding.setStudent(student);
 
+        activityMvvmBinding.setHandlers(new HandlerClickEvent());
+
         /*activityMvvmBinding.textName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,17 +37,10 @@ public class MVVMActivity extends AppCompatActivity {
     }
 
 
-    public static class HandlerClickEvent {
-
-        public void onClickListener(View view) {
-            Log.d(TAG, "onClickListener: view");
-            /*switch (view.getId()) {
-                case R.id.text_name:
-                    Log.e(TAG, "onClickListener: ");
-                    break;
-            }*/
+    public class HandlerClickEvent {
+        public void clickName(View view) {
+            Log.d(TAG, "clickName: view");
         }
-
     }
 
 }

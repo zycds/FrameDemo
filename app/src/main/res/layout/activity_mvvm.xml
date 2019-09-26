@@ -24,7 +24,7 @@
             android:background="@android:color/black"
             android:gravity="center"
             android:text="@{student.studentName}"
-            android:onClick="@{handlers.onClickListener}"/>
+            android:onClick="@{handlers.clickName}"/>
         
     </LinearLayout>
 </layout>
