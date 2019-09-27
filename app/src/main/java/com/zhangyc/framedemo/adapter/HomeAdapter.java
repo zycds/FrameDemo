@@ -26,7 +26,7 @@ public class HomeAdapter extends BaseRecyclerAdapter<HomeViewHolder, PublicAddre
 
     @Override
     public void setItemData(HomeViewHolder viewHolder, int position) {
-        viewHolder.itemHomeListBinding.textItemName.setText(mTData.get(position).getName());
+        viewHolder.itemHomeListBinding.setPublicAddress(mTData.get(position));
     }
 
     @Override

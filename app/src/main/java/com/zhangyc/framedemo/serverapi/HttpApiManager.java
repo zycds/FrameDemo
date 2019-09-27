@@ -1,6 +1,8 @@
 package com.zhangyc.framedemo.serverapi;
 
 import com.zhangyc.framedemo.constant.Constants;
+import com.zhangyc.framedemo.entity.ArticleList;
+import com.zhangyc.framedemo.entity.BannerBean;
 import com.zhangyc.framedemo.entity.PublicAddress;
 
 import org.jetbrains.annotations.NotNull;
@@ -60,12 +62,16 @@ public class HttpApiManager {
         return instance;
     }
 
-    /**
-     * 获取公众号列表
-     * @return
-     */
     public Observable<List<PublicAddress>> getPublicAddressList() {
         return mServerApi.getPublicAddressList().compose(RxJavaHelper.<List<PublicAddress>>handlerServerResult());
+    }
+
+    public Observable<ArticleList> getArticleList(int page) {
+        return mServerApi.getArticleList(page).compose(RxJavaHelper.<ArticleList>handlerServerResult());
+    }
+
+    public Observable<List<BannerBean>> getBanners() {
+        return mServerApi.getBanners().compose(RxJavaHelper.<List<BannerBean>>handlerServerResult());
     }
 
 }

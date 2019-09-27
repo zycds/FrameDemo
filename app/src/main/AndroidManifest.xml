@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".mvvm.MVVMActivity" />
         <activity android:name=".publicaddress.HomeActivity" />
+        <activity android:name=".publicaddress.ArticleListActivity" />
+        <activity android:name=".publicaddress.WebActivity" />
     </application>
 
 </manifest>

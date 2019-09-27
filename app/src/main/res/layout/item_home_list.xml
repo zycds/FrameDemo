@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="publicAddress"
             type="com.zhangyc.framedemo.entity.PublicAddress" />
@@ -11,8 +12,8 @@
         android:id="@+id/text_item_name"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textSize="32sp"
+        android:text="@{publicAddress.name}"
         android:textColor="@android:color/black"
-        android:text="@{publicAddress.name}"/>
-    
+        android:textSize="32sp" />
+
 </layout>

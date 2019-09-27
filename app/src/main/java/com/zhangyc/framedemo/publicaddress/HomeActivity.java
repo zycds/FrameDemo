@@ -1,11 +1,12 @@
 package com.zhangyc.framedemo.publicaddress;
 
 import android.content.Context;
-import android.util.Log;
+import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.zhangyc.framedemo.R;
 import com.zhangyc.framedemo.adapter.HomeAdapter;
@@ -30,7 +31,6 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
 
     @Override
     protected void initViews() {
-        Log.d(TAG, "initViews: ");
         mHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         mHomeBinding.recyclerViewPublicAddress.setLayoutManager(new LinearLayoutManager(getContext()));
         HomeAdapter homeAdapter = new HomeAdapter(getContext());
@@ -39,6 +39,7 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
 
     @Override
     protected void initData() {
+        mHomePresenter.requestBanner();
         mHomePresenter.requestPublicAddressList();
     }
 
@@ -57,23 +58,30 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
     }
 
     @Override
-    public void onSuccess() {
+    public ViewPager getViewPager() {
+        return mHomeBinding.viewPager;
+    }
 
+    @Override
+    public void onSuccess() {
+        dismissLoadingDialog();
     }
 
     @Override
     public void onFail(Throwable throwable) {
-
+        dismissLoadingDialog();
     }
 
     @Override
     public void showLoadingDialog() {
-
+        mHomeBinding.recyclerViewPublicAddress.setVisibility(View.GONE);
+        mHomeBinding.progressCircular.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void dismissLoadingDialog() {
-
+        mHomeBinding.progressCircular.setVisibility(View.GONE);
+        mHomeBinding.recyclerViewPublicAddress.setVisibility(View.VISIBLE);
     }
 
 }

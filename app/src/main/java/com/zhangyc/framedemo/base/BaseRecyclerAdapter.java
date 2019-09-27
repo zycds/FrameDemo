@@ -1,7 +1,6 @@
 package com.zhangyc.framedemo.base;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, TD
 
     public static final String TAG = BaseRecyclerAdapter.class.getSimpleName();
 
-    private Context mContext;
+    protected Context mContext;
 
     protected List<TData> mTData = new ArrayList<>();
 
@@ -27,7 +26,7 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, TD
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(mContext).inflate(getLayoutResId(), parent, false);
+        View inflate = LayoutInflater.from(mContext).inflate(getLayoutResId(), null, false);
         return createVH(inflate);
     }
 
@@ -44,7 +43,6 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, TD
 
     @Override
     public int getItemCount() {
-        Log.i(TAG, "getItemCount: " + mTData);
        return mTData.size();
     }
 
