@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.zhangyc.framedemo.adapter.HomeAdapter;
 import com.zhangyc.framedemo.base.BaseRecyclerAdapter;
 import com.zhangyc.framedemo.entity.BannerBean;
