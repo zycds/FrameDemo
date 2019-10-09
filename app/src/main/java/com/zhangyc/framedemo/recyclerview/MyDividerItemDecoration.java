@@ -54,6 +54,9 @@ public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
         if (mColor != null) {
 
         }
+        if (mResColorId != 0) {
+            paint.setColor(mResColorId);
+        }
         c.drawRect(0, 100, 3000, 0 , paint);
     }
 }

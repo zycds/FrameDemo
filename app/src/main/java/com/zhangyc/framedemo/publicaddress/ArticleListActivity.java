@@ -77,6 +77,12 @@ public class ArticleListActivity extends BaseActivity implements ArticleContact.
     }
 
     @Override
+    protected void systemBack() {
+        finish();
+        overridePendingTransition(R.anim.in_from_left, R.anim.out_from_right);
+    }
+
+    @Override
     public RecyclerView getRecyclerView() {
         return mArticleListBinding.recyclerViewArticleList;
     }

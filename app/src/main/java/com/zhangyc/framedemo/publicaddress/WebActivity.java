@@ -42,6 +42,12 @@ public class WebActivity extends BaseActivity implements WebViewContact.IWebView
     }
 
     @Override
+    protected void systemBack() {
+        finish();
+        overridePendingTransition(R.anim.in_from_left, R.anim.out_from_right);
+    }
+
+    @Override
     public void onSuccess() {
         dismissLoadingDialog();
     }

@@ -8,6 +8,7 @@ import com.zhangyc.framedemo.adapter.ArticleAdapter;
 import com.zhangyc.framedemo.base.BaseRecyclerAdapter;
 import com.zhangyc.framedemo.entity.ArticleList;
 import com.zhangyc.framedemo.mvp.IBaseView;
+import com.zhangyc.framedemo.publicaddress.ArticleListActivity;
 import com.zhangyc.framedemo.publicaddress.WebActivity;
 import com.zhangyc.framedemo.serverapi.HttpApiManager;
 
@@ -49,7 +50,8 @@ public class ArticlePresenter implements ArticleContact.IArticlePresenter {
                             public void itemClick(int position) {
                                 Intent intent = new Intent(mIArticleView.getContext(), WebActivity.class);
                                 intent.putExtra("url", articleList.getDatas().get(position).getLink());
-                                mIArticleView.getContext().startActivity(intent);
+//                                mIArticleView.getContext().startActivity(intent);
+                                ((ArticleListActivity)mIArticleView.getContext()).startIntentRigthToLeft(intent);
                             }
                         });
                         articleAdapter.notifyDataSetChanged();

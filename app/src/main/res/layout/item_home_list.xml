@@ -11,9 +11,10 @@
     <TextView
         android:id="@+id/text_item_name"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
         android:text="@{publicAddress.name}"
         android:textColor="@android:color/black"
-        android:textSize="32sp" />
+        android:textSize="24sp" />
 
 </layout>

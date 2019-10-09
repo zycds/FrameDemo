@@ -1,11 +1,20 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item> <!--app Bar background-->
+        <item name="colorPrimaryDark">@android:color/transparent</item><!--statusBar -->
+        <item name="colorAccent">@color/colorAccent</item><!-- checkBox RadioButton  checked 状态 -->
+        <item name="android:windowBackground">@android:color/white</item><!--窗口的默认颜色-->
+        <!--<item name="android:windowFullscreen">true</item>--> <!--全屏-->
+
+        <item name="android:textColorPrimary">@color/colorPrimary</item> <!--EditText 文本颜色-->
+
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+       <!-- <item name="android:navigationMode">tabMode</item> --><!--normal listMode tabMode-->
     </style>
 
 </resources>

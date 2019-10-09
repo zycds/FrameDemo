@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -33,6 +34,10 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
     protected void initViews() {
         mHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         mHomeBinding.recyclerViewPublicAddress.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        mHomeBinding.recyclerViewPublicAddress.addItemDecoration(dividerItemDecoration);
+
         HomeAdapter homeAdapter = new HomeAdapter(getContext());
         mHomeBinding.recyclerViewPublicAddress.setAdapter(homeAdapter);
     }
@@ -45,6 +50,11 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
 
     @Override
     protected void unInit() {
+    }
+
+    @Override
+    protected void systemBack() {
+        finish();
     }
 
     @Override

@@ -13,8 +13,6 @@ import java.util.List;
 
 public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, TData> extends RecyclerView.Adapter<VH> {
 
-    public static final String TAG = BaseRecyclerAdapter.class.getSimpleName();
-
     protected Context mContext;
 
     protected List<TData> mTData = new ArrayList<>();
@@ -26,7 +24,7 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, TD
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(mContext).inflate(getLayoutResId(), null, false);
+        View inflate = LayoutInflater.from(mContext).inflate(getLayoutResId(), parent, false);
         return createVH(inflate);
     }
 

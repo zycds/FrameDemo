@@ -15,7 +15,8 @@
             android:id="@+id/recyclerView_publicAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/viewPager"/>
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            android:paddingBottom="260dp"/>
         
         <ProgressBar
             android:id="@+id/progress_circular"
