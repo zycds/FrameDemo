@@ -1,12 +1,16 @@
 package com.zhangyc.framedemo.publicaddress.contacts;
 
 import android.graphics.Bitmap;
+import android.util.Log;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.zhangyc.framedemo.mvp.IBaseView;
 
 public class WebPresenter implements WebViewContact.IWebPresenter {
+
+    public static final String TAG = WebPresenter.class.getSimpleName();
 
     private WebViewContact.IWebView mIWebView;
 
@@ -27,6 +31,7 @@ public class WebPresenter implements WebViewContact.IWebPresenter {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
+                Log.i(TAG, "onPageStarted: " + url);
                 mIWebView.showLoadingDialog();
             }
 
@@ -37,7 +42,21 @@ public class WebPresenter implements WebViewContact.IWebPresenter {
             }
 
         };
-        mIWebView.getWebView().setWebViewClient(webViewClient);
+
+        WebChromeClient webChromeClient = new WebChromeClient(){
+
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                Log.i(TAG, "onProgressChanged: " + newProgress);
+                if (newProgress == 100)  mIWebView.onSuccess();
+                else mIWebView.showLoadingDialog();
+            }
+        };
+        mIWebView.getWebView().setWebChromeClient(webChromeClient);
+
+
+//        mIWebView.getWebView().setWebViewClient(webViewClient);
         mIWebView.getWebView().loadUrl(url);
     }
 }
