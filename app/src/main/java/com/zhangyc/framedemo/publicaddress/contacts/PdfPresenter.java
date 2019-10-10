@@ -66,8 +66,6 @@ public class PdfPresenter implements PdfContact.IPdfPresenter {
             }
         });*/
 
-
-
         final CustomPdfRenderer customPdfRenderer = new CustomPdfRenderer.Builder().width(mPdfView.getContext().getResources().getDisplayMetrics().widthPixels).height(mPdfView.getContext().getResources().getDisplayMetrics().heightPixels).build();
         customPdfRenderer.loadPdf(urlBook, mPdfView.getDisplayImageView());
         mPdfView.getDisplayImageView().setOnClickListener(new View.OnClickListener() {
