@@ -42,7 +42,6 @@ public class NoHttpUtil {
         return instance;
     }
 
-
     public void init(Context context) {
         InitializationConfig initializationConfig = InitializationConfig.newBuilder(context)
                 .connectionTimeout(Constants.SERVER_TIMEOUT)
