@@ -1,8 +1,12 @@
 package com.zhangyc.framedemo.publicaddress;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +20,7 @@ import com.zhangyc.framedemo.base.BaseActivity;
 import com.zhangyc.framedemo.databinding.ActivityHomeBinding;
 import com.zhangyc.framedemo.publicaddress.contacts.HomeContact;
 import com.zhangyc.framedemo.publicaddress.contacts.HomePresenter;
+import com.zhangyc.framedemo.utils.PermissionUtil;
 
 
 public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
@@ -25,9 +30,31 @@ public class HomeActivity extends BaseActivity implements HomeContact.HomeView {
     @InjectPresenter
     HomePresenter mHomePresenter;
 
+    private String[] mPermissions = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.ACCESS_NETWORK_STATE
+    };
+
+
     @Override
     protected void init() {
+        PermissionUtil.requestPermission(this, mPermissions);
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PermissionUtil.REQUEST_CODE) {
+            for (int i = 0; i < grantResults.length; i++) {
+                if(grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    Log.e(TAG, "onRequestPermissionsResult: " + permissions[i]);
+                } else {
+                    Log.i(TAG, "onRequestPermissionsResult: " + permissions[i]);
+                }
+            }
+        }
     }
 
     @Override

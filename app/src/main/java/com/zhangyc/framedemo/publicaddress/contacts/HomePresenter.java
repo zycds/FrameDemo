@@ -19,6 +19,7 @@ import com.zhangyc.framedemo.entity.PublicAddress;
 import com.zhangyc.framedemo.mvp.IBaseView;
 import com.zhangyc.framedemo.publicaddress.ArticleListActivity;
 import com.zhangyc.framedemo.publicaddress.HomeActivity;
+import com.zhangyc.framedemo.publicaddress.PdfActivity;
 import com.zhangyc.framedemo.serverapi.HttpApiManager;
 
 import java.util.List;
@@ -80,7 +81,7 @@ public class HomePresenter implements HomeContact.IHomePresenter {
         homeAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void itemClick(int position) {
-                ((HomeActivity)mIBaseView.getContext()).startIntentRigthToLeft(new Intent(mIBaseView.getContext(), ArticleListActivity.class));
+                ((HomeActivity)mIBaseView.getContext()).startIntentRigthToLeft(new Intent(mIBaseView.getContext(), PdfActivity.class));
             }
         });
     }

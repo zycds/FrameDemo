@@ -4,11 +4,16 @@
     package="com.zhangyc.framedemo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -24,6 +29,7 @@
         <activity android:name=".publicaddress.HomeActivity" />
         <activity android:name=".publicaddress.ArticleListActivity" />
         <activity android:name=".publicaddress.WebActivity" />
+        <activity android:name=".publicaddress.PdfActivity" />
     </application>
 
 </manifest>
